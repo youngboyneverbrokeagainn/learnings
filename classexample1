@@ -1,0 +1,45 @@
+//oncelikle private,protected ve public kavramlarinin ne anlama geldigini anlayalim.
+//public her yerden erisilebilir.
+//private sadece sinifin icerisinden erisilebilir.
+//protected ise miras aldigi classin icerisinden erisilebilir.
+#include <iostream>
+using namespace std;
+
+class araba {
+private:
+    int hiz;
+    string marka;
+public:
+    void bilgileriGoster() {
+        cout<<"Marka: "<<marka<<endl;
+        cout<<"Hiz: "<<hiz<<endl;
+    }
+    void setHiz() {
+        int yeniHiz;
+        cout<<"lutfen hizinizin degerini giriniz: "<<endl;
+        cin>>yeniHiz;
+        if (yeniHiz>=0) {
+            hiz=yeniHiz;
+        }
+        else {
+            cout<<"lutfen dogru parametre giriniz."<<endl;
+        }
+    }
+
+
+    void setMarka(){
+        string yeniMarka;
+        cout<<"lutfen marka ismini giriniz: "<<endl;
+        cin.ignore();
+        getline(cin , yeniMarka);
+        marka=yeniMarka;
+    }
+
+};
+int main() {
+    araba benimArabam;
+    benimArabam.setHiz();
+    benimArabam.setMarka();
+    benimArabam.bilgileriGoster();
+    return 0;
+}
