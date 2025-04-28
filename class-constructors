@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class kitap {
+private:
+    string kitapAdi;
+    string yazar;
+    int sayfaSayisi;
+public:
+    // Constructor
+    kitap() {
+        do {
+            cout << "Kitap adini giriniz: ";
+            getline(cin, kitapAdi);
+            if (kitapAdi == "") {
+                cout << "Kitap adi bos birakilamaz! Tekrar deneyin." << endl;
+            }
+        } while (kitapAdi == "");
+
+        do {
+            cout << "Yazar adini giriniz: ";
+            getline(cin, yazar);
+            if (yazar == "") {
+                cout << "Yazar adi bos birakilamaz! Tekrar deneyin." << endl;
+            }
+        } while (yazar == "");
+
+        cout << "Lutfen kitap sayfa sayisini giriniz: ";
+        cin >> sayfaSayisi;
+        if (sayfaSayisi <= 0) {
+            sayfaSayisi = 1;
+        }
+    }
+
+    // Fonksiyon unutma fonksiyonlar constructor icerisine yazilamaz.
+    void kitapBilgileriniGoster() {
+        cout << "Kitabin Ismi: " << kitapAdi << endl;
+        cout << "Kitabin Yazari: " << yazar << endl;
+        cout << "Kitabin Sayfa Sayisi: " << sayfaSayisi << endl;
+    }
+};
+
+int main() {
+    kitap benimKitabim;
+    benimKitabim.kitapBilgileriniGoster();
+    return 0;
+}
